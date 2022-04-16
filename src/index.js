@@ -20,13 +20,16 @@ for (const cmd of commandFiles) {
 // console.log(commandFiles)
 
 client.on("messageCreate", msg => {
-  if (msg.content == "!deploy" && msg.author.id === msg.guild.ownerId) {
+  if (msg.content == "!d" && msg.author.id === msg.guild.ownerId) {
     msg.guild.commands
       .set(commands)
       .then(() => {
-        msg.reply("Bot Deployed!");
+        msg.reply("Bot zdeployowany!");
       })
-      .catch(err => console.log("Error! Sprawdź, czy bot ma uprawnienia do application.commands scope"));
+      .catch(err => {
+        console.log("Error! Sprawdź, czy bot ma uprawnienia do application.commands scope");
+        console.log(err);
+      });
   };
 });
 
